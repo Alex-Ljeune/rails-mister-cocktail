@@ -1,11 +1,32 @@
-<div class="container">
-  <h1>Cocktails</h1>
-  <ul>
-<% @cocktails.each do |cocktail| %>
-<li><%= link_to cocktail.name, cocktail_path(cocktail) %></li>
-<% end %>
-</ul>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/dykscnyvu/image/upload/v1605269005/04-bartender-garnishing-cocktail_aijj8i.jpg);">
+  <div class="container">
+    <h1>Cocktails</h1>
+    <p>Change your life and learn to code at one of our campuses around the world.</p>
+    <%= link_to "New Cocktail", new_cocktail_path, class: "btn btn-ghost" %>
+  </div>
 </div>
-<div class="container">
-<%= link_to 'New Cocktail', new_cocktail_path %>
+
+<div class="container flex-box">
+  <div class="row">
+    <% @cocktails.each do |cocktail| %>
+    <div class="card-product">
+      <%= cl_image_tag("#{cocktail.id}",
+        width: 200, height: 150, crop: :fill) %>
+      <div class="card-product-infos">
+        <h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
 </div>
